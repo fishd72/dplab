@@ -44,7 +44,10 @@ installRequired ()
 configureApache ()
 {
     # Create server folders
-    mkdir -p /vagrant/server/Packages
+    if [[ ! -d /vagrant/server/Packages ]];
+    then
+        mkdir -p /vagrant/server/Packages
+    fi
 
     # Setup Available Site
     service apache2 stop
